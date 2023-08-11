@@ -1,0 +1,51 @@
+
+<div class="div-header-table">
+    
+    <a [routerLink]="['/medicamento']"><i class="pi pi-angle-double-left"></i><i class="pi pi-angle-double-left"></i></a>
+    <div><p-calendar id="fabricacion"  [(ngModel)]="desde" dateFormat="yy-mm-dd"></p-calendar></div>    
+    <label>hasta</label>
+    <div><p-calendar id="fabricacion" [(ngModel)]="hasta" name="fabricacion" dateFormat="yy-mm-dd"></p-calendar></div>
+    
+    <p-button  (click)="filtrarBeteewen()" class="p-button-success">Filtrar</p-button>
+    <p-button  (click)="ngOnInit()" class="p-button-success" ><i class="pi pi-refresh"></i></p-button>
+    
+
+</div>
+<p-table
+    [value]="ventas"
+    [paginator]="true"
+    [rows]="5"
+    [showCurrentPageReport]="true"
+    [tableStyle]="{ 'min-width': '50rem' }"
+    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+    [rowsPerPageOptions]="[10, 5, 50]"
+>
+    <ng-template pTemplate="header">
+        <tr>
+            
+            <th style="width:10%">Fecha</th>
+            <th style="width:10%">hora</th>
+            <th style="width:10%">Cantidad</th>
+            <th style="width:10%">Producto</th>
+            <th style="width:10%">precio</th>
+            <th style="width:10%">valor Total</th>
+            
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-customer>
+        <tr>
+            <td>{{ customer.fecha}}</td>
+            <td>{{ customer.hora }}</td>
+            <td>{{ customer.cantidad}}</td>
+            <td>{{ customer.nombreMedicamento}}</td>
+            <td>{{ customer.valorUnitario}}</td> 
+            <td>{{ customer.valorTotal}}</td> 
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="paginatorleft">
+        <p-button type="button" icon="pi pi-plus" styleClass="p-button-text"></p-button>
+    </ng-template>
+    <ng-template pTemplate="paginatorright">
+        <p-button type="button" icon="pi pi-cloud" styleClass="p-button-text"></p-button>
+    </ng-template>
+</p-table>

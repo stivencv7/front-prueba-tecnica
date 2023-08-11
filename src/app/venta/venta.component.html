@@ -1,0 +1,31 @@
+<form>
+
+    <table>
+        <tr>
+            <th>Nombre</th>
+            <th>Laboratorio</th>
+            <th>Precio</th>
+            <label class="mb-2 block font-bold" for="minmax-buttons">Min-Max Boundaries</label>
+        </tr>
+        <tr>
+            <td><input type="text" pInputText disabled="false" value={{medicamento.nombre}}
+                    style="text-align: center;" /></td>
+            <td><input type="text" pInputText disabled="false" value={{medicamento.laboratorioFabrica}}
+                    style="text-align: center;" /></td>
+            <td><input type="text" pInputText disabled="false" value={{medicamento.valorUnitario}}
+                    style="text-align: center;" /></td>
+            <td><p-inputNumber mode="decimal" [showButtons]="true" (onInput)="verTotal($event.value)"
+                    inputId="minmax-buttons" [min]="1" [max]=medicamento.cantidad> </p-inputNumber></td>
+        </tr>
+        <tr>
+            <th colspan="3" style="text-align:right;">Total</th>
+            <td style="text-align:center">{{medicamento.valorUnitario*cantida}}</td>
+        </tr>
+    </table>
+
+    <div>
+        <div>
+            <p-button label="Confirmar" (onClick)="confirmar()" class="p-button-success"> </p-button>
+        </div>
+    </div>
+</form>

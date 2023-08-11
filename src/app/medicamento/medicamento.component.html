@@ -1,0 +1,64 @@
+
+<div class="div-header-table">
+    <button pButton pRipple  class="p-button-success" (click)="show()">Registrar[+]</button>
+
+    <span class="p-input-icon-left">
+        <i class="pi pi-search"></i>
+        <input type="text" pInputText id="letra" name="letra" (input)=" buscarProNombre()"/>
+    </span>
+
+    <a [routerLink]="['/venta']">ir a Ventas</a>
+</div>
+
+<p-dialog header="Formulario" [(visible)]="visibleDialog" [position]="'top'" [style]="{ width: '50vw' }" (onHide)="onHide()">
+<app-venta  [medicamento]="medicamento" (OutputVisibleDialog)="getVisibleDialog($event)"></app-venta>
+</p-dialog>
+
+<p-sidebar [(visible)]="visible" styleClass="w-90em" (onHide)="hide()">
+    <app-form (outputVisible)="getVisible($event)" [medicamento]="medicamento"></app-form>
+</p-sidebar>
+<p-table
+    [value]="medicamentos"
+    [paginator]="true"
+    [rows]="5"
+    [showCurrentPageReport]="true"
+    [tableStyle]="{ 'min-width': '50rem' }"
+    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+    [rowsPerPageOptions]="[10, 5, 50]"
+>
+    <ng-template pTemplate="header">
+        <tr>
+            <th style="width:25%">id</th>
+            <th style="width:25%">Nombre</th>
+            <th style="width:25%">Laboratorio</th>
+            <th style="width:25%">Fecha Fabricación</th>
+            <th style="width:25%">Fecha Vencimiento</th>
+            <th style="width:25%">Cantidad</th>
+            <th style="width:25%">precio</th>
+            <th style="width:25%">Vender</th>
+            <th style="width:25%">Editar</th>
+            <th style="width:25%">Eliminar</th>
+            
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-customer>
+        <tr>
+            <td>{{ customer.id}}</td>
+            <td>{{ customer.nombre }}</td>
+            <td>{{ customer.laboratorioFabrica }}</td>
+            <td>{{ customer.fechaFabricacion}}</td>
+            <td>{{ customer.fechaVencimiento}}</td>
+            <td>{{ customer.cantidad}}</td>
+            <td>{{ customer.valorUnitario}}</td> 
+            <td><p-button *ngIf="(customer.cantidad)" label="Vender" styleClass="p-button-success" (click)="getMedicamentoVenta(customer.id)"></p-button></td>
+            <td><p-button label="Editar" (click)="getMedicamento(customer.id)"></p-button></td>
+            <td><p-button label="Eliminar" styleClass="p-button-danger" (click)="delete(customer)" value={{customer.id}}></p-button></td>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="paginatorleft">
+        <p-button type="button" icon="pi pi-plus" styleClass="p-button-text"></p-button>
+    </ng-template>
+    <ng-template pTemplate="paginatorright">
+        <p-button type="button" icon="pi pi-cloud" styleClass="p-button-text"></p-button>
+    </ng-template>
+</p-table>

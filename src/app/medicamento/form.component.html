@@ -1,0 +1,53 @@
+<form class="form-registro">
+    <div>
+        <Label id="nombre">Nombre</Label>
+        <div> 
+            <input  type="text" pInputText name="nombre" id="nombre" [(ngModel)]="medicamento.nombre" />
+        </div>
+    </div>
+
+    <div>
+        <Label id="laboratorio">Laboratorio</Label>
+        <div> 
+            <input type="text" pInputText  id="laboratorio" name="laboratorio" [(ngModel)]="medicamento.laboratorioFabrica"/>
+        </div>
+    </div>
+
+    <div>
+        <Label id="fabricacion">Fecha de Fabricación</Label>
+        <div> 
+            
+            <!--<p-calendar [(ngModel)]="date"></p-calendar>-->
+             <p-calendar id="fabricacion" name="fabricacion" dateFormat="yy-mm-dd" [(ngModel)]="medicamento.fechaFabricacion" ></p-calendar>
+        </div>
+    </div>
+
+    <div>
+        <Label id="vencimiento">Fecha de Vencimiento</Label>
+        <div> 
+            <p-calendar id="vencimiento" name="vencimiento" dateFormat="yy-mm-dd" [(ngModel)]="medicamento.fechaVencimiento" ></p-calendar>
+        </div>
+    </div>
+
+    <div>
+        <Label id="cantidad">Cantidad</Label>
+        <div> 
+            <input type="text" pInputText  id="cantidad" name="cantidad"  [(ngModel)]="medicamento.cantidad"/>
+        </div>
+    </div>
+
+    <div>
+        <Label id="valor">Valor Unitario</Label>
+        <div> 
+            <input type="text" pInputText  id="valor" name="valor"  [(ngModel)]="medicamento.valorUnitario"/>
+        </div>
+    </div>
+    
+    <div><p-button class="p-button-success" (click)="registrar()" *ngIf="!medicamento.id else elseBlock">Guardar</p-button></div>
+
+    <ng-template #elseBlock>
+        <p-button class="btn btn-primary" (click)="actualizar(medicamento.id)" >Actualizar</p-button>
+    </ng-template>
+    
+
+</form>
