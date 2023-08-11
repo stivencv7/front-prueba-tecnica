@@ -2,10 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { MedicamentoService } from './medicamento.service';
 import { Medicamento } from './medicamento';
 import swal from 'sweetalert2';
-import { PrimeNGConfig } from 'primeng/api';
-import { TranslateService } from '@ngx-translate/core';
 import { Venta } from '../venta/venta';
-import { VentaService } from '../venta/venta.service';
+
 
 @Component({
   selector: 'app-medicamento',
@@ -13,6 +11,8 @@ import { VentaService } from '../venta/venta.service';
   styleUrls: ['./medicamento.component.css']
 })
 export class MedicamentoComponent implements OnInit {
+/**se utilisa swal para los mensaje de alert */
+
   public medicamentos: Medicamento[];
   public visible = false;
   public visibleDialog=false
@@ -21,7 +21,6 @@ export class MedicamentoComponent implements OnInit {
   public Venta:Venta=new Venta();
   constructor(
     private service: MedicamentoService,
-    private serviceVenta:VentaService
     ) { }
   
   ngOnInit(): void {
@@ -56,7 +55,7 @@ export class MedicamentoComponent implements OnInit {
       }
     })
   }
-
+  //
   show() {
     if (!this.visible) {
       this.visible = true;
@@ -65,7 +64,7 @@ export class MedicamentoComponent implements OnInit {
     }
   }
 
-
+  /** */
   getVisible(visible: boolean) {
     this.visible = visible;
     this.ngOnInit()
@@ -116,12 +115,7 @@ export class MedicamentoComponent implements OnInit {
     this.showVisibleDialog() 
     this.service.getMedicamento(id).subscribe(medicamento=>{
       this.medicamento=medicamento    
-      //console.log("medicamento: "+medicamento.fechaFabricacion)
     })
-   /* this.serviceVenta.getVenta(id).subscribe(venta=>{
-      this.Venta=venta    
-      console.log("venta: "+venta.medicamento.nombre)
-    })*/
   }
 
   onHide(){

@@ -1,3 +1,4 @@
+<h2>Formulario Crear</h2>
 <form class="form-registro">
     <div>
         <Label id="nombre">Nombre</Label>
@@ -16,8 +17,6 @@
     <div>
         <Label id="fabricacion">Fecha de Fabricación</Label>
         <div> 
-            
-            <!--<p-calendar [(ngModel)]="date"></p-calendar>-->
              <p-calendar id="fabricacion" name="fabricacion" dateFormat="yy-mm-dd" [(ngModel)]="medicamento.fechaFabricacion" ></p-calendar>
         </div>
     </div>
@@ -25,7 +24,7 @@
     <div>
         <Label id="vencimiento">Fecha de Vencimiento</Label>
         <div> 
-            <p-calendar id="vencimiento" name="vencimiento" dateFormat="yy-mm-dd" [(ngModel)]="medicamento.fechaVencimiento" ></p-calendar>
+            <p-calendar  class="calendar" id="vencimiento" name="vencimiento" dateFormat="yy-mm-dd" [(ngModel)]="medicamento.fechaVencimiento" ></p-calendar>
         </div>
     </div>
 

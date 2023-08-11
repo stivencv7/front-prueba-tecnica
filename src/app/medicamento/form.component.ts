@@ -25,6 +25,7 @@ export class FormComponent {
         this.visible();
         this.router.navigate[("/medicamento")]
         swal("Registro","Exito al registrar el medicamento","success")
+        this.medicamento=new Medicamento()
       }
     );
   }
@@ -35,7 +36,10 @@ export class FormComponent {
       swal("Succes","Se actualizaron correctamente los datos","success")
     })
   }
-
+  
+  /*mandamos este valor para al componente padre
+  /*para cerra la p-sidebar
+  */
   visible(){
     this.outputVisible.emit(false);
   }

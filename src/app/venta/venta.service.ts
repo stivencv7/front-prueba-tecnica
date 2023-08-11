@@ -8,6 +8,10 @@ import swal from 'sweetalert2';
   providedIn: 'root'
 })
 export class VentaService {
+  
+  /*
+    se maneja las peticiones http 
+  */
 
   private httpHeaders:HttpHeaders;
   constructor(private http:HttpClient ) { }
@@ -44,7 +48,7 @@ export class VentaService {
     let fechaDesd=desde.getFullYear()+"-"+cero+(desde.getMonth()+1)+"-"+day+desde.getDate();
     let fechaHasta=hasta.getFullYear()+"-"+cero2+(hasta.getMonth()+1)+"-"+dayhasta+hasta.getDate();
    
-    
+  
     console.log("fechadesde "+fechaDesd.toString())
     console.log("fechahatas "+fechaHasta.toString())
     

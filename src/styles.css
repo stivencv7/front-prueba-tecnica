@@ -3,7 +3,7 @@
 @import "primeng/resources/primeng.css";
 @import "primeicons/primeicons.css";
 .p-sidebar-left{
-    width: 30% !important;
+    width: 38% !important;
 }
 
 .div-header-table{
@@ -31,13 +31,24 @@
     .p-dialog {
       width: 75vw !important;
       height: 25vw !important;
-        box-shadow: 0 0 20px black !important;
+    box-shadow: 0 0 20px black !important;
      
     }
 
     .form-registro{
        
-        gap: 15px !important;
+        gap: 5px !important;
+    }
+    
+    .p-sidebar-left{
+        width: 50% !important;
+    }
+    .p-datepicker {
+        width: auto;
+        position: absolute;
+        top: -194px !Important;
+        left: -85px !Important;
     }
 }
+
 
