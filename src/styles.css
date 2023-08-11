@@ -3,7 +3,7 @@
 @import "primeng/resources/primeng.css";
 @import "primeicons/primeicons.css";
 .p-sidebar-left{
-    width: 38% !important;
+    width: 40% !important;
 }
 
 .div-header-table{
@@ -48,6 +48,17 @@
         position: absolute;
         top: -194px !Important;
         left: -85px !Important;
+    }
+
+    .p-sidebar-left{
+        width: 36% !important;
+    }
+
+    .fabricacion-calendar .p-datepicker{
+        width: auto;
+        position: absolute;
+        top: 0px !Important;
+        left: 0px !Important;
     }
 }
 

@@ -9,9 +9,12 @@ import swal from 'sweetalert2';
 })
 export class MedicamentoService {
 
+  /**
+   * clase servicio para manejar los service
+  */
   private httpHeaders=new HttpHeaders({'Content-Type':'application/json'})
   constructor(private http:HttpClient) { }
-
+  
   getMedicamentos():Observable<Medicamento[]>{
     return this.http.get<Medicamento[]>("http://localhost:8080/api/medicamentos");
   }

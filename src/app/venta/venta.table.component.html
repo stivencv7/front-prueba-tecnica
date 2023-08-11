@@ -2,9 +2,9 @@
 <div class="div-header-table">
     
     <a [routerLink]="['/medicamento']"><i class="pi pi-angle-double-left"></i><i class="pi pi-angle-double-left"></i></a>
-    <div><p-calendar id="fabricacion"  [(ngModel)]="desde" dateFormat="yy-mm-dd"></p-calendar></div>    
+    <div><p-calendar class="fabricacion-calendar" id="fabricacion"  [(ngModel)]="desde" dateFormat="yy-mm-dd"></p-calendar></div>    
     <label>hasta</label>
-    <div><p-calendar id="fabricacion" [(ngModel)]="hasta" name="fabricacion" dateFormat="yy-mm-dd"></p-calendar></div>
+    <div><p-calendar class="fabricacion-calendar" id="fabricacion" [(ngModel)]="hasta" name="fabricacion" dateFormat="yy-mm-dd"></p-calendar></div>
     
     <p-button  (click)="filtrarBeteewen()" class="p-button-success">Filtrar</p-button>
     <p-button  (click)="ngOnInit()" class="p-button-success" ><i class="pi pi-refresh"></i></p-button>
