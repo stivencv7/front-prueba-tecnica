@@ -33,9 +33,7 @@ const routes:Routes=[
     MedicamentoComponent,
     FormComponent,
     VentaComponent,
-    VentaTableComponent,
-    
-    
+    VentaTableComponent
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Medicamento } from './medicamento';
 import { MedicamentoService } from './medicamento.service';
 import { Router } from '@angular/router';
@@ -9,7 +9,7 @@ import swal from 'sweetalert2';
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.css']
 })
-export class FormComponent {
+export class FormComponent implements OnInit {
   
   @Output()
   outputVisible=new EventEmitter<boolean>();
@@ -18,12 +18,16 @@ export class FormComponent {
   medicamento:Medicamento=new Medicamento();
  
   constructor(private service:MedicamentoService,private router:Router){}
+ 
+  ngOnInit(): void {
+    
+  }
   
   registrar(){
     this.service.guardar(this.medicamento).subscribe(
       response=>{
         this.visible();
-        this.router.navigate[("/medicamento")]
+        //this.router.navigate[("/medicamento")]
         swal("Registro","Exito al registrar el medicamento","success")
         this.medicamento=new Medicamento()
       }

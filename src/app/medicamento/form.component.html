@@ -1,51 +1,81 @@
 <h2>Formulario Crear</h2>
-<form class="form-registro">
+<form class="form-registro" #formCrear="ngForm">
     <div>
         <Label id="nombre">Nombre</Label>
         <div> 
-            <input  type="text" pInputText name="nombre" id="nombre" [(ngModel)]="medicamento.nombre" />
+            <input  type="text" pInputText name="nombre"  [(ngModel)]="medicamento.nombre" required minlength="3" #nombre="ngModel" />
+            <div *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)">
+               <div  *ngIf="nombre.errors.required">
+                    Nombre es requerido
+               </div>
+            </div>
         </div>
     </div>
 
     <div>
         <Label id="laboratorio">Laboratorio</Label>
         <div> 
-            <input type="text" pInputText  id="laboratorio" name="laboratorio" [(ngModel)]="medicamento.laboratorioFabrica"/>
+            <input type="text" pInputText  id="laboratorio" name="laboratorio" [(ngModel)]="medicamento.laboratorioFabrica" required #laboratorio="ngModel"/>
+            <div  *ngIf="laboratorio.invalid && (laboratorio.dirty || laboratorio.touched)">
+                <div *ngIf="laboratorio.errors.required">
+                    Nombre de laboratorio es requerido
+                </div>
+             </div>
         </div>
     </div>
 
     <div>
         <Label id="fabricacion">Fecha de Fabricación</Label>
         <div> 
-             <p-calendar id="fabricacion" name="fabricacion" dateFormat="yy-mm-dd" [(ngModel)]="medicamento.fechaFabricacion" ></p-calendar>
+             <p-calendar id="fabricacion" name="fabricacion" dateFormat="yy-mm-dd" [(ngModel)]="medicamento.fechaFabricacion" required #fabricacion="ngModel"></p-calendar>
+             <div *ngIf="fabricacion.invalid && (fabricacion.dirty || fabricacion.touched)">
+                <div *ngIf="nombre.errors.required">
+                    Fecha de fabricacion requerida
+                </div>
+             </div>
         </div>
     </div>
 
     <div>
         <Label id="vencimiento">Fecha de Vencimiento</Label>
         <div> 
-            <p-calendar  class="calendar" id="vencimiento" name="vencimiento" dateFormat="yy-mm-dd" [(ngModel)]="medicamento.fechaVencimiento" ></p-calendar>
+            <p-calendar  class="calendar" id="vencimiento" name="vencimiento" dateFormat="yy-mm-dd" [(ngModel)]="medicamento.fechaVencimiento" required #vencimiento="ngModel"></p-calendar>
+            <div *ngIf="vencimiento.invalid && (vencimiento.dirty || vencimiento.touched)">
+                <div *ngIf="vencimiento.errors.required">
+                    Fecha de vencimiento es requerida
+                </div>
+             </div>
         </div>
     </div>
 
     <div>
         <Label id="cantidad">Cantidad</Label>
         <div> 
-            <input type="text" pInputText  id="cantidad" name="cantidad"  [(ngModel)]="medicamento.cantidad"/>
+            <input type="number" pInputText  id="cantidad" name="cantidad"  [(ngModel)]="medicamento.cantidad" required #cantidad="ngModel"/>
+            <div  *ngIf="cantidad.invalid && (cantidad.dirty || cantidad.touched)">
+                <div *ngIf="cantidad.errors.required">
+                    Cantidad requerida
+                </div>
+             </div>
         </div>
     </div>
 
     <div>
         <Label id="valor">Valor Unitario</Label>
         <div> 
-            <input type="text" pInputText  id="valor" name="valor"  [(ngModel)]="medicamento.valorUnitario"/>
+            <input type="number" pInputText  id="valor" name="valor"  [(ngModel)]="medicamento.valorUnitario" required #valor="ngModel"/>
+            <div  *ngIf="valor.invalid && (valor.dirty || valor.touched)">
+                <div *ngIf="valor.errors.required">
+                    Precio requerido
+                </div>
+            </div>
         </div>
     </div>
     
-    <div><p-button class="p-button-success" (click)="registrar()" *ngIf="!medicamento.id else elseBlock">Guardar</p-button></div>
+    <div><button class="btn btn-success" (click)="registrar()" *ngIf="!medicamento.id else elseBlock" [disabled]="!formCrear.form.valid">Guardar</button></div>
 
     <ng-template #elseBlock>
-        <p-button class="btn btn-primary" (click)="actualizar(medicamento.id)" >Actualizar</p-button>
+        <button class="btn btn-success" (click)="actualizar(medicamento.id)" [disabled]="!formCrear.form.valid">Actualizar</button>
     </ng-template>
     
 

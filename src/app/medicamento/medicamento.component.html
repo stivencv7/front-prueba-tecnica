@@ -26,33 +26,33 @@
     currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
     [rowsPerPageOptions]="[10, 5, 50]"
 >
-    <ng-template pTemplate="header">
+    <ng-template pTemplate="header" style="text-align: center;">
         <tr>
-            <th style="width:18%">id</th>
-            <th style="width:25%">Nombre</th>
-            <th style="width:25%">Laboratorio</th>
-            <th style="width:25%">Fecha Fabricación</th>
-            <th style="width:25%">Fecha Vencimiento</th>
-            <th style="width:25%">Cantidad</th>
-            <th style="width:25%">precio</th>
-            <th style="width:25%">Vender</th>
-            <th style="width:25%">Editar</th>
-            <th style="width:25%">Eliminar</th>
+            <th style="width:5%;text-align: center;">id</th>
+            <th style="width:15%;text-align: center;">Nombre</th>
+            <th style="width:15%;text-align: center;">Laboratorio</th>
+            <th style="width:15%;text-align: center;">Fecha Fabricación</th>
+            <th style="width:15%;text-align: center;">Fecha Vencimiento</th>
+            <th style="width:10%;text-align: center;">Cantidad</th>
+            <th style="width:10%;text-align: center;">precio</th>
+            <th style="width:10%;text-align: center;">Vender</th>
+            <th style="width:25%;text-align: center;">Editar</th>
+            <th style="width:25%;text-align: center;">Eliminar</th>
             
         </tr>
     </ng-template>
-    <ng-template pTemplate="body" let-customer>
+    <ng-template  pTemplate="body" let-customer>
         <tr>
-            <td>{{ customer.id}}</td>
-            <td>{{ customer.nombre }}</td>
-            <td>{{ customer.laboratorioFabrica }}</td>
-            <td>{{ customer.fechaFabricacion}}</td>
-            <td>{{ customer.fechaVencimiento}}</td>
-            <td>{{ customer.cantidad}}</td>
-            <td>{{ customer.valorUnitario}}</td> 
-            <td><p-button *ngIf="(customer.cantidad)" label="Vender" styleClass="p-button-success" (click)="getMedicamentoVenta(customer.id)"></p-button></td>
-            <td><p-button label="Editar" (click)="getMedicamento(customer.id)"></p-button></td>
-            <td><p-button label="Eliminar" styleClass="p-button-danger" (click)="delete(customer)" value={{customer.id}}></p-button></td>
+            <td style="text-align: center;">{{ customer.id}}</td>
+            <td style="text-align: center;">{{ customer.nombre }}</td>
+            <td style="text-align: center;">{{ customer.laboratorioFabrica }}</td>
+            <td style="text-align: center;">{{ customer.fechaFabricacion}}</td>
+            <td style="text-align: center;">{{ customer.fechaVencimiento}}</td>
+            <td style="text-align: center;">{{ customer.cantidad}}</td>
+            <td style="text-align: center;">{{ customer.valorUnitario}}</td> 
+            <td style="text-align: center;"><p-button *ngIf="(customer.cantidad)" label="Vender" styleClass="p-button-success" (click)="getMedicamentoVenta(customer.id)"></p-button></td>
+            <td style="text-align: center;"><p-button label="Editar" (click)="getMedicamento(customer.id)"></p-button></td>
+            <td style="text-align: center;"><p-button label="Eliminar" styleClass="p-button-danger" (click)="delete(customer)" value={{customer.id}}></p-button></td>
         </tr>
     </ng-template>
     <ng-template pTemplate="paginatorleft">
